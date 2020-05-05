@@ -3,7 +3,7 @@
 
 FROM nvaitc/ai-lab:20.03
 
-LABEL maintainer="Timothy Liu <timothyl@nvidia.com>"
+LABEL maintainer="metril"
 
 ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES},display
 
@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ENV CONDA_DIR=/opt/conda \
     SHELL=/bin/bash \
-    NB_USER=jovyan \
+    NB_USER=localuser \
     NB_UID=1000 \
     NB_GID=100 \
     LC_ALL=en_US.UTF-8 \
