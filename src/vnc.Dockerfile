@@ -28,7 +28,7 @@ ENV PATH=$CONDA_DIR/bin:$PATH \
     WEBSOCKIFY_VERSION=0.9.0 \
     LIBGLVND_VERSION=master
 
-COPY xorg.conf.nvidia-headless /etc/X11/xorg.conf
+COPY src/xorg.conf.nvidia-headless /etc/X11/xorg.conf
 
 RUN apt-get update && \
     apt-get install --no-upgrade -yq --no-install-recommends \
@@ -87,7 +87,7 @@ RUN cd /opt/ && \
     fix-permissions $CONDA_DIR && \
     fix-permissions $HOME
 
-COPY 10_nvidia.json /usr/local/share/glvnd/egl_vendor.d/10_nvidia.json
+COPY src/10_nvidia.json /usr/local/share/glvnd/egl_vendor.d/10_nvidia.json
 
 ENV LD_LIBRARY_PATH /usr/local/lib/x86_64-linux-gnu:/usr/local/lib/i386-linux-gnu${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
@@ -198,7 +198,7 @@ RUN wget ${CODESERVER_URL} && \
     fix-permissions $CONDA_DIR && \
     fix-permissions $HOME
 
-COPY Xvnc-session /etc/X11/
+COPY src/Xvnc-session /etc/X11/
 
 RUN chmod 777 /etc/X11/Xvnc-session
 
